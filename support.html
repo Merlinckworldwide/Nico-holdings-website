@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Support & FAQs | Nico Holdings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, rgba(29,78,216,0.95), rgba(14,165,233,0.95));
+      color: #fff;
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 34%),
+                  radial-gradient(circle at bottom right, rgba(255,255,255,0.08), transparent 24%);
+      pointer-events: none;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .page-hero p {
+      max-width: 700px;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 1.5rem;
+    }
+    .page-section {
+      padding: 5rem 0;
+    }
+    .section-header h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .support-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 2.5rem;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.06);
+      border: 1px solid rgba(15,23,42,0.06);
+      height: 100%;
+    }
+    .support-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .support-card p {
+      color: #475569;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+    .chat-widget {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(15,23,42,0.1);
+      border: 1px solid rgba(15,23,42,0.08);
+      overflow: hidden;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .chat-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 1.5rem;
+      font-weight: 700;
+    }
+    .chat-body {
+      height: 250px;
+      padding: 1.5rem;
+      overflow-y: auto;
+      background: #eff6ff;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .chat-bubble {
+      padding: 0.85rem 1.1rem;
+      border-radius: 16px;
+      max-width: 80%;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .chat-bubble.bot {
+      background: #fff;
+      color: var(--text);
+      align-self: flex-start;
+      border-top-left-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .chat-bubble.user {
+      background: var(--primary);
+      color: #fff;
+      align-self: flex-end;
+      border-top-right-radius: 4px;
+      box-shadow: 0 4px 12px rgba(29,78,216,0.15);
+    }
+    .chat-input-area {
+      padding: 1rem;
+      background: #fff;
+      border-top: 1px solid rgba(15,23,42,0.08);
+      display: flex;
+      gap: 0.75rem;
+    }
+    .chat-input-area input {
+      flex: 1;
+      border: 1px solid rgba(15,23,42,0.15);
+      border-radius: 14px;
+      padding: 0.5rem 1rem;
+      outline: none;
+    }
+    .chat-input-area input:focus {
+      border-color: var(--primary);
+    }
+    .chat-input-area button {
+      border-radius: 14px;
+    }
+    .faq-accordion .accordion-item {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(15,23,42,0.08);
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.03);
+    }
+    .faq-accordion .accordion-button {
+      font-weight: 600;
+      color: var(--text);
+      padding: 1.25rem 1.5rem;
+    }
+    .faq-accordion .accordion-button:not(.collapsed) {
+      background-color: var(--surface-soft);
+      color: var(--primary);
+      box-shadow: none;
+    }
+    .faq-accordion .accordion-body {
+      padding: 1.5rem;
+      color: #475569;
+      line-height: 1.8;
+    }
+    @media (max-width: 767px) {
+      .page-hero { padding: 3rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg glass-nav px-3 px-lg-5">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand fw-bold" href="index.html">Nico</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav" data-bs-auto-close="false">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-lg-4">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="business.html">Our Business</a></li>
+            <li class="nav-item"><a class="nav-link" href="investors.html">Investor Relations</a></li>
+            <li class="nav-item"><a class="nav-link" href="opportunities.html">Opportunities</a></li>
+            <li class="nav-item"><a class="nav-link" href="forms.html">Forms</a></li>
+            <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="nav-icons d-flex align-items-center gap-3 ms-auto">
+          <a href="https://www.facebook.com/" target="_blank" class="icon-link">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://x.com/" target="_blank" class="icon-link">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" class="icon-link">
+            <i class="bi bi-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="top-info-bar px-3 px-lg-5">
+      <div class="container-fluid px-0 d-flex flex-column flex-md-row align-items-center justify-content-start gap-3 py-2">
+        <div class="d-flex align-items-center gap-2 text-primary fw-semibold text-uppercase small">
+          <img src="images/company%20logo/company%20logo%20.png" alt="Nico" class="top-logo">
+          <span>Nico</span>
+        </div>
+        <div class="d-flex flex-wrap gap-3 ms-3 ms-md-4">
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link text-dark fw-semibold" href="products.html">Products</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="products.html#personal">Personal Banking</a></li>
+              <li><a class="dropdown-item" href="products.html#business">Business Banking</a></li>
+              <li><a class="dropdown-item" href="products.html#loans">Loans</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link text-dark fw-semibold active" href="support.html">Support</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="support.html#help">Help Center</a></li>
+              <li><a class="dropdown-item" href="support.html#faq">FAQs</a></li>
+              <li><a class="dropdown-item" href="support.html#chat">Live Chat</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link text-dark fw-semibold" href="downloads.html">Downloads</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="downloads.html#app">Mobile App</a></li>
+              <li><a class="dropdown-item" href="downloads.html#forms">Forms PDF</a></li>
+              <li><a class="dropdown-item" href="downloads.html#reports">Reports</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link text-dark fw-semibold" href="portal.html">My Portal</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="portal.html#login">Login</a></li>
+              <li><a class="dropdown-item" href="portal.html#register">Register</a></li>
+              <li><a class="dropdown-item" href="portal.html#dashboard">Dashboard</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="badge bg-white text-primary mb-3">Here to Help</span>
+        <h1>Support & FAQs Center</h1>
+        <p>Find answers to common questions about your policy, reach out to our helpdesk, or interact with our chat system.</p>
+      </div>
+    </section>
+
+    <!-- HELP CENTER -->
+    <section id="help" class="page-section">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <p class="section-label">Get in touch</p>
+          <h2>Help Channels</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px;">Connect with our support team directly via email, phone hotlines, or visit our branches.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4">
+            <div class="support-card text-center">
+              <h3>24/7 Telephone Support</h3>
+              <p class="mb-3">Reach out to our customer care center anytime for immediate assistance.</p>
+              <p class="fw-bold text-primary">+265 1 234 567</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="support-card text-center">
+              <h3>Email Assistance</h3>
+              <p class="mb-3">Submit policy queries or submit details about a claim to our inbox.</p>
+              <p class="fw-bold text-primary">support@nicoinsurance.com</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="support-card text-center">
+              <h3>Visit a Branch</h3>
+              <p class="mb-3">Walk into our head office or regional branches for direct face-to-face services.</p>
+              <p class="fw-bold text-primary">123 Nico Avenue, Lilongwe</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS ACCORDION -->
+    <section id="faq" class="page-section bg-light">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header text-center mb-5">
+          <p class="section-label">Common Questions</p>
+          <h2>Frequently Asked Questions</h2>
+          <p class="text-muted">Find quick answers to common questions regarding policies, claims, updates, and portals.</p>
+        </div>
+
+        <div class="accordion faq-accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                How do I register a claim?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                To register a claim, download the appropriate claim form from our Downloads section, complete all required fields, attach supporting documents (e.g. police reports, invoices), and submit them to claims@nicoinsurance.com or visit any Nico office.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                What are the payment options for policy premiums?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                We accept bank transfers, credit/debit card payments via our online portal, direct debit orders, and mobile money services (Airtel Money and TNM Mpamba).
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                How long does it take to process a claim?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Standard claims are reviewed and processed within 5 to 10 working days after receipt of all required supporting documentation. Complex commercial claims may require additional inspection time.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Can I update my coverage details online?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes, logged-in users can update address listings, add beneficiaries, and adjust specific coverage limits inside their Portal dashboard. Alternatively, you can download a Policy Update Form.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE CHAT -->
+    <section id="chat" class="page-section">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <p class="section-label">Digital Assistant</p>
+          <h2>Live Chat Simulator</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px;">Test out our support chat simulator below. Type a message to see a quick response.</p>
+        </div>
+
+        <div class="chat-widget">
+          <div class="chat-header">
+            <span>Nico Support Assistant</span>
+          </div>
+          <div class="chat-body" id="chatBody">
+            <div class="chat-bubble bot">
+              Hello! I am your Nico digital assistant. How can I help you today?
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type a query...">
+            <button class="btn btn-primary" onclick="sendSimulatedMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer py-5">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">Personal</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a href="products.html#personal">Products</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="portal.html">My Portal</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">Business</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a href="business.html">Business Insurance</a></li>
+            <li><a href="products.html#business">Enterprise Plans</a></li>
+            <li><a href="support.html">Claims Support</a></li>
+            <li><a href="business.html">Risk Management</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">Services</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a href="index.html#services">Motor Insurance</a></li>
+            <li><a href="index.html#services">Health Insurance</a></li>
+            <li><a href="index.html#services">Travel Insurance</a></li>
+            <li><a href="index.html#services">Life Insurance</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">About Nico</h6>
+          <p class="text-muted">Nico is one of Malawi's leading insurance providers offering trusted protection for individuals and businesses.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="icon-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="icon-link"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="icon-link"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center pt-4 mt-4 border-top border-white-10">
+        <p class="mb-0">© 2026 Nico Holdings PLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function sendSimulatedMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      
+      const chatBody = document.getElementById('chatBody');
+      
+      // User bubble
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble user';
+      userBubble.textContent = text;
+      chatBody.appendChild(userBubble);
+      
+      input.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+      
+      // Simulated Bot bubble
+      setTimeout(() => {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-bubble bot';
+        
+        const normalized = text.toLowerCase();
+        if (normalized.includes('claim')) {
+          botBubble.textContent = "To claim, fill out the Claim Form under our Downloads page.";
+        } else if (normalized.includes('portal') || normalized.includes('login')) {
+          botBubble.textContent = "You can login or register your account in 'My Portal' at portal.html.";
+        } else if (normalized.includes('phone') || normalized.includes('call') || normalized.includes('contact')) {
+          botBubble.textContent = "You can call our hotline at +265 1 234 567 or email support@nicoinsurance.com.";
+        } else {
+          botBubble.textContent = "Thanks for testing! For customized queries, please contact our help desk directly.";
+        }
+        
+        chatBody.appendChild(botBubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, 750);
+    }
+    
+    // Allow enter key press to send message
+    document.getElementById('chatInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendSimulatedMessage();
+      }
+    });
+  </script>
+</body>
+</html>
