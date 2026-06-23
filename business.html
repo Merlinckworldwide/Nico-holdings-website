@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Services | Nico Holdings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero { background: linear-gradient(135deg, rgba(29,78,216,0.95), rgba(14,165,233,0.95)); color: #fff; padding: 5rem 0; position: relative; overflow: hidden; }
+    .page-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 34%), radial-gradient(circle at bottom right, rgba(255,255,255,0.08), transparent 24%); pointer-events: none; }
+    .page-hero h1 { font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1rem; }
+    .page-hero p { max-width: 720px; color: rgba(255,255,255,0.92); margin-bottom: 1.5rem; }
+    .page-section { padding: 4rem 0; }
+    .section-header h2 { font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; }
+    .feature-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .feature-card { background: #fff; border-radius: 22px; padding: 1.8rem; box-shadow: 0 16px 40px rgba(15,23,42,0.08); border: 1px solid rgba(15,23,42,0.08); }
+    .feature-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.85rem; }
+    .feature-card p { color: #475569; line-height: 1.8; }
+    .stats-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .stats-card { background: linear-gradient(180deg, #eff6ff, #dbeafe); border-radius: 18px; padding: 1.8rem; border: 1px solid rgba(37,99,235,0.18); }
+    .stats-card .value { font-size: 2rem; font-weight: 800; color: #1d4ed8; margin-bottom: 0.35rem; }
+    .stats-card .label { color: #475569; }
+    .cta-panel { background: linear-gradient(135deg, #1d4ed8, #0ea5e9); border-radius: 24px; color: #fff; padding: 2.5rem; text-align: center; }
+    .cta-panel p { opacity: 0.9; }
+    @media (max-width: 767px) { .page-hero { padding: 3rem 0; } }
+  </style>
+</head>
+<body>
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg glass-nav px-3 px-lg-5">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand fw-bold" href="index.html">Nico</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav" data-bs-auto-close="false">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-lg-4">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link active" href="business.html">Our Business</a></li>
+            <li class="nav-item"><a class="nav-link" href="investors.html">Investor Relations</a></li>
+            <li class="nav-item"><a class="nav-link" href="opportunities.html">Opportunities</a></li>
+            <li class="nav-item"><a class="nav-link" href="forms.html">Forms</a></li>
+            <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="nav-icons d-flex align-items-center gap-3 ms-auto">
+          <a href="https://www.facebook.com/" target="_blank" class="icon-link">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://x.com/" target="_blank" class="icon-link">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" class="icon-link">
+            <i class="bi bi-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="top-info-bar px-3 px-lg-5">
+      <div class="container-fluid px-0 d-flex flex-column flex-md-row align-items-center justify-content-start gap-3 py-2">
+        <div class="d-flex align-items-center gap-2 text-primary fw-semibold text-uppercase small">
+          <img src="images/company%20logo/company%20logo%20.png" alt="Nico" class="top-logo">
+          <span>Nico</span>
+        </div>
+        <div class="d-flex flex-wrap gap-3 ms-3 ms-md-4">
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link text-dark fw-semibold" href="products.html">Products</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="products.html#personal">Personal Banking</a></li>
+              <li><a class="dropdown-item" href="products.html#business">Business Banking</a></li>
+              <li><a class="dropdown-item" href="products.html#loans">Loans</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link text-dark fw-semibold" href="support.html">Support</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="support.html#help">Help Center</a></li>
+              <li><a class="dropdown-item" href="support.html#faq">FAQs</a></li>
+              <li><a class="dropdown-item" href="support.html#chat">Live Chat</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link text-dark fw-semibold" href="downloads.html">Downloads</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="downloads.html#app">Mobile App</a></li>
+              <li><a class="dropdown-item" href="downloads.html#forms">Forms PDF</a></li>
+              <li><a class="dropdown-item" href="downloads.html#reports">Reports</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <a class="dropdown-toggle nav-link text-dark fw-semibold" href="portal.html">My Portal</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="portal.html#login">Login</a></li>
+              <li><a class="dropdown-item" href="portal.html#register">Register</a></li>
+              <li><a class="dropdown-item" href="portal.html#dashboard">Dashboard</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="badge bg-white text-primary mb-3">Business & Commercial</span>
+        <h1>Business Insurance & Risk Management</h1>
+        <p>Protecting enterprises across Malawi with tailored corporate insurance, asset protection, and operational risk solutions.</p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">What We Offer</p>
+          <h2>Flexible business solutions for every sector</h2>
+          <p class="text-muted">From small companies to large corporations, our business insurance packages support growth, stability, and long-term resilience.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Corporate Property Insurance</h3>
+            <p>Protect physical assets, offices, warehouses, and inventory against fire, theft, flood, and business interruption.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Commercial Motor Insurance</h3>
+            <p>Cover company vehicles, delivery fleets, and specialist transport with flexible motor insurance for fleets of all sizes.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Liability & Professional Cover</h3>
+            <p>Safeguard your business against third-party claims, professional liability, and legal expenses.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Employee Benefits</h3>
+            <p>Offer staff health, accident, and group life benefits that enhance retention and employee wellbeing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section bg-light">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-5">
+            <div class="stats-grid">
+              <div class="stats-card">
+                <div class="value">24/7</div>
+                <div class="label">Claims support</div>
+              </div>
+              <div class="stats-card">
+                <div class="value">+10</div>
+                <div class="label">Industry segments supported</div>
+              </div>
+              <div class="stats-card">
+                <div class="value">98%</div>
+                <div class="label">Customer satisfaction rating</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <h2 class="mb-4">How we help your business succeed</h2>
+            <div class="feature-grid">
+              <article class="feature-card">
+                <h3>Asset protection</h3>
+                <p>Insure your equipment, machines and stock so your business can recover quickly after damage or loss.</p>
+              </article>
+              <article class="feature-card">
+                <h3>Customized plans</h3>
+                <p>Create a package that fits your budget, industry risks, and long-term growth strategy.</p>
+              </article>
+              <article class="feature-card">
+                <h3>Local expertise</h3>
+                <p>Benefit from local claims handling, risk guidance, and reliable support close to your operations.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="cta-panel">
+          <h2 class="mb-3">Secure your business with a smarter commercial plan</h2>
+          <p class="mb-4">Our team will help you choose the right coverage for your sector, whether you operate in retail, logistics, agriculture, or services.</p>
+          <a href="contact.html" class="btn btn-light btn-lg">Contact our business team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer py-5">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">Personal</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">My Portal</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">Business</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#">Business Insurance</a></li>
+            <li><a href="#">Enterprise Plans</a></li>
+            <li><a href="#">Claims Support</a></li>
+            <li><a href="#">Risk Management</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">Services</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#">Motor Insurance</a></li>
+            <li><a href="#">Health Insurance</a></li>
+            <li><a href="#">Travel Insurance</a></li>
+            <li><a href="#">Life Insurance</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="text-white fw-bold mb-3">About Nico</h6>
+          <p class="text-muted">Nico is one of Malawi's leading insurance providers offering trusted protection for individuals and businesses.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="icon-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="icon-link"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="icon-link"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center pt-4 mt-4 border-top border-white-10">
+        <p class="mb-0">© 2026 Nico Holdings PLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
